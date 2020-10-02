@@ -75,7 +75,7 @@ def download_by_url(yturl):
         base, ext = os.path.splitext(out_file)
         new_file = base + '.mp3'
 
-        data['url'] = 'https://la-musica.herokuapp.com/' + \
+        data['url'] = 'http://musicbaazi.azurewebsites.net/' + \
             video.default_filename[:-4] + '.mp3'
         data['vid_url'] = vid_url
         data['title'] = video.default_filename[:-4]
@@ -182,7 +182,7 @@ def index():
 def rest_api():
     data = request.get_json()
     result = downloader(data['name'])
-    result['url'] = 'https://musicbaazi.herokuapp.com/'+result['url']
+    result['url'] = 'http://musicbaazi.azurewebsites.net/'+result['url']
     # print(result)
     return result  # Process Done
 
